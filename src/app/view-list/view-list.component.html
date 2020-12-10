@@ -1,16 +1,22 @@
-<button mat-icon-button color="primary" routerLink='/home'>
-  <mat-icon>home</mat-icon>
-</button>
+<div class="view-list-screen">
+  <button mat-icon-button class="home-button" color="primary" routerLink='/home'>
+    <mat-icon>home</mat-icon>
+  </button>
 
-<h1>List Title</h1>
-<h2>Created by: John Calvin</h2>
+  <div class="right-side">
+    <div class="list-content">
+      <h1>List Title</h1>
+      <h2>Created by: John Calvin</h2>
 
-<div>
-  <mat-checkbox>List item 1</mat-checkbox>
-  <br>
-  <mat-checkbox>List item 2</mat-checkbox>
-  <br>
-  <mat-checkbox>List item 3</mat-checkbox>
+      <div>
+        <mat-checkbox>List item 1</mat-checkbox>
+        <br>
+        <mat-checkbox>List item 2</mat-checkbox>
+        <br>
+        <mat-checkbox>List item 3</mat-checkbox>
+      </div>
+    </div>
+
+    <button mat-raised-button class="edit-button" color='primary' routerLink='/edit-list'>Edit</button>
+  </div>
 </div>
-
-<button mat-raised-button color='primary' routerLink='/edit-list'>Edit</button>
