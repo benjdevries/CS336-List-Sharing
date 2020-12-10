@@ -21,6 +21,7 @@ h2 {
 }
 
 .right-side {
+  margin-left: 10px;
   grid-column-start: 2;
   grid-column-end: 3;
 }
@@ -30,7 +31,8 @@ h2 {
   margin-bottom: 20px;
 }
 
-.edit-button {
-  position: sticky;
+.mat-fab {
+  position: fixed;
   bottom: 10px;
+  right: 10px;
 }

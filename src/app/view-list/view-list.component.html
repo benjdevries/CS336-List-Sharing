@@ -1,11 +1,15 @@
-<div class="view-list-screen">
-  <button mat-icon-button class="home-button" color="primary" routerLink='/home'>
+<mat-toolbar color='primary'>
+  <button mat-icon-button class="home-button" routerLink='/home'>
     <mat-icon>home</mat-icon>
   </button>
+  <span>List 1</span>
+</mat-toolbar>
+
+<div class="view-list-screen">
+
 
   <div class="right-side">
     <div class="list-content">
-      <h1>List Title</h1>
       <h2>Created by: John Calvin</h2>
 
       <div>
@@ -17,6 +21,8 @@
       </div>
     </div>
 
-    <button mat-raised-button class="edit-button" color='primary' routerLink='/edit-list'>Edit</button>
+    <a mat-fab color="accent" routerLink="/edit-list">
+      <mat-icon>create</mat-icon>
+    </a>
   </div>
 </div>

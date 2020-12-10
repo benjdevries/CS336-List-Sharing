@@ -11,11 +11,13 @@
 }
 
 .right-side {
+  margin-left: 20px;
   grid-column-start: 2;
   grid-column-end: 4;
 }
 
 .editing-list-content {
+
   margin-top: 5px;
   margin-bottom: 20px;
 }
@@ -29,5 +31,9 @@ h1 {
 .save-delete-buttons {
   position: sticky;
   bottom: 10px;
+}
+
+.mat-raised-button {
+  margin: 5px;
 }
 

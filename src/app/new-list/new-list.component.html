@@ -1,11 +1,13 @@
-<div class="new-list-screen">
-  <button mat-icon-button class="home-button" color="primary" routerLink='/home'>
+<mat-toolbar color='primary'>
+  <button mat-icon-button class="home-button" routerLink='/home'>
     <mat-icon>home</mat-icon>
   </button>
+  <span>New List</span>
+</mat-toolbar>
 
+<div class="new-list-screen">
   <div class="right-side">
     <div class="new-list-content">
-      <h1>New List</h1>
       <mat-form-field appearance="fill">
         <mat-label>Name</mat-label>
         <input matInput>

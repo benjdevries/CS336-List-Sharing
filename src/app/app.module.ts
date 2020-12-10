@@ -16,6 +16,10 @@ import { MatInputModule } from '@angular/material/input';
 import { ListItemComponent } from './list-item/list-item.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatRipple, MatRippleModule } from '@angular/material/core';
+
+
 
 
 import { AngularFireModule } from '@angular/fire';
@@ -54,7 +58,9 @@ const firebaseConfig = {
     MatCheckboxModule,
     MatCardModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    MatToolbarModule,
+    MatRippleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

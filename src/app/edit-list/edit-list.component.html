@@ -1,11 +1,15 @@
-<div class="edit-list-screen">
-  <a mat-icon-button class="back-button" color="primary" routerLink='/list'>
+<mat-toolbar color='primary'>
+  <a mat-icon-button routerLink='/list'>
     <mat-icon>arrow_back</mat-icon>
   </a>
+  <span>Edit: List 1</span>
+</mat-toolbar>
+
+<div class="edit-list-screen">
+
 
   <div class="right-side">
     <div class="editing-list-content">
-      <h1>Editing List 1</h1>
       <mat-form-field appearance="fill">
         <mat-label>Name</mat-label>
         <!-- the value will need to be a variable from the database -->
