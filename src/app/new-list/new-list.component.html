@@ -1,25 +1,66 @@
-<button mat-icon-button color="primary" routerLink='/home'>
-  <mat-icon>home</mat-icon>
-</button>
+<div class="new-list-screen">
+  <button mat-icon-button class="home-button" color="primary" routerLink='/home'>
+    <mat-icon>home</mat-icon>
+  </button>
 
-<h1>New List</h1>
-<mat-form-field appearance="fill">
-  <mat-label>Name</mat-label>
-  <input matInput>
-</mat-form-field>
-<br>
-<mat-form-field appearance="fill">
-  <mat-label>Creator</mat-label>
-  <input matInput>
-</mat-form-field>
-<!-- The list items below will have to be replaced with a ngFor that generates all items from the list -->
-<!-- Ignore the fact that i used breaks to style it :) -->
-<div>
-  <mat-checkbox>List item 1</mat-checkbox>
-  <br>
-  <mat-checkbox>List item 2</mat-checkbox>
-  <br>
-  <mat-checkbox>List item 3</mat-checkbox>
+  <div class="right-side">
+    <div class="new-list-content">
+      <h1>New List</h1>
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Creator</mat-label>
+        <input matInput>
+      </mat-form-field>
+      <!-- The list items below will have to be replaced with a ngFor that generates all items from the list -->
+      <!-- Ignore the fact that i used breaks to style it :) -->
+      <div>
+        <mat-checkbox>List item 1</mat-checkbox>
+        <br>
+        <mat-checkbox>List item 2</mat-checkbox>
+        <br>
+        <mat-checkbox>List item 3</mat-checkbox>
+        <br>
+        <mat-checkbox>List item 1</mat-checkbox>
+        <br>
+        <mat-checkbox>List item 2</mat-checkbox>
+        <br>
+        <mat-checkbox>List item 3</mat-checkbox>
+        <br>
+        <mat-checkbox>List item 1</mat-checkbox>
+        <br>
+        <mat-checkbox>List item 2</mat-checkbox>
+        <br>
+        <mat-checkbox>List item 3</mat-checkbox>
+        <br>
+        <mat-checkbox>List item 1</mat-checkbox>
+        <br>
+        <mat-checkbox>List item 2</mat-checkbox>
+        <br>
+        <mat-checkbox>List item 3</mat-checkbox>
+        <br>
+        <mat-checkbox>List item 1</mat-checkbox>
+        <br>
+        <mat-checkbox>List item 2</mat-checkbox>
+        <br>
+        <mat-checkbox>List item 3</mat-checkbox>
+        <br>
+        <mat-checkbox>List item 2</mat-checkbox>
+        <br>
+        <mat-checkbox>List item 3</mat-checkbox>
+        <br>
+        <mat-checkbox>List item 1</mat-checkbox>
+        <br>
+        <mat-checkbox>List item 2</mat-checkbox>
+        <br>
+        <mat-checkbox>List item 3</mat-checkbox>
+        <br>
+      </div>
+    </div>
+
+    <a mat-raised-button class="create-new-button" color="primary" routerLink="/list">Create</a>
+  </div>
 </div>
-
-<a mat-raised-button color="primary" routerLink="/list">Create</a>

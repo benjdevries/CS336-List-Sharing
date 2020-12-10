@@ -1,0 +1,36 @@
+.view-list-screen {
+  display: grid;
+  align-content: space-between;
+  white-space: nowrap;
+  width: min-content;
+}
+
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.home-button {
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+.right-side {
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
+.list-content {
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+.edit-button {
+  position: sticky;
+  bottom: 10px;
+}

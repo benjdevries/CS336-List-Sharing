@@ -1,20 +1,49 @@
-<a mat-icon-button color="primary" routerLink='/list'>
-  <mat-icon>arrow_back</mat-icon>
-</a>
+<div class="edit-list-screen">
+  <a mat-icon-button class="back-button" color="primary" routerLink='/list'>
+    <mat-icon>arrow_back</mat-icon>
+  </a>
 
-<h1>Editing List 1</h1>
-<mat-form-field appearance="fill">
-  <mat-label>Name</mat-label>
-  <!-- the value will need to be a variable from the database -->
-  <input matInput value='List 1'>
-</mat-form-field>
-<br>
-<mat-form-field appearance="fill">
-  <mat-label>Creator</mat-label>
-  <input matInput value='John Calvin'>
-</mat-form-field>
-<div>
-  List of items with delete icons here
+  <div class="right-side">
+    <div class="editing-list-content">
+      <h1>Editing List 1</h1>
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <!-- the value will need to be a variable from the database -->
+        <input matInput value='List 1'>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Creator</mat-label>
+        <input matInput value='John Calvin'>
+      </mat-form-field>
+      <div>
+        List of items with delete icons here
+        <br>
+        List of items with delete icons here
+        <br>
+        List of items with delete icons here
+        <br>
+        List of items with delete icons here
+        <br>
+        List of items with delete icons here
+        <br>
+        List of items with delete icons here
+        <br>
+        List of items with delete icons here
+        <br>
+        List of items with delete icons here
+        <br>
+        List of items with delete icons here
+        <br>
+        List of items with delete icons here
+        <br>
+        List of items with delete icons here
+        <br>
+      </div>
+    </div>
+    <div class="save-delete-buttons">
+      <a mat-raised-button class="save-button" color="primary">Save</a>
+      <a mat-raised-button class="delete-button" color="warn">Delete List</a>
+    </div>
+  </div>
 </div>
-<a mat-raised-button color="primary">Save</a>
-<a mat-raised-button color="warn">Delete List</a>
