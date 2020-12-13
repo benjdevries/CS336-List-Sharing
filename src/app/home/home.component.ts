@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { DataService, List } from '../data.service';
 
 @Component({
   selector: 'app-home',
@@ -8,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  allLists: List[] = [];
+
+  constructor(private ds: DataService) {
+    this.ds.allListsBS.subscribe(al => this.allLists = al);
+  }
 
   ngOnInit(): void {
   }
+
 
 }

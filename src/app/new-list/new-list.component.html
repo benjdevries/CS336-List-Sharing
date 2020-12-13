@@ -10,59 +10,26 @@
     <div class="new-list-content">
       <mat-form-field appearance="fill">
         <mat-label>Name</mat-label>
-        <input matInput>
+        <input matInput [(ngModel)]="creatorName">
       </mat-form-field>
       <br>
       <mat-form-field appearance="fill">
         <mat-label>Creator</mat-label>
-        <input matInput>
+        <input matInput [(ngModel)]="todoListName">
       </mat-form-field>
-      <!-- The list items below will have to be replaced with a ngFor that generates all items from the list -->
-      <!-- Ignore the fact that i used breaks to style it :) -->
-      <div>
-        <mat-checkbox>List item 1</mat-checkbox>
-        <br>
-        <mat-checkbox>List item 2</mat-checkbox>
-        <br>
-        <mat-checkbox>List item 3</mat-checkbox>
-        <br>
-        <mat-checkbox>List item 1</mat-checkbox>
-        <br>
-        <mat-checkbox>List item 2</mat-checkbox>
-        <br>
-        <mat-checkbox>List item 3</mat-checkbox>
-        <br>
-        <mat-checkbox>List item 1</mat-checkbox>
-        <br>
-        <mat-checkbox>List item 2</mat-checkbox>
-        <br>
-        <mat-checkbox>List item 3</mat-checkbox>
-        <br>
-        <mat-checkbox>List item 1</mat-checkbox>
-        <br>
-        <mat-checkbox>List item 2</mat-checkbox>
-        <br>
-        <mat-checkbox>List item 3</mat-checkbox>
-        <br>
-        <mat-checkbox>List item 1</mat-checkbox>
-        <br>
-        <mat-checkbox>List item 2</mat-checkbox>
-        <br>
-        <mat-checkbox>List item 3</mat-checkbox>
-        <br>
-        <mat-checkbox>List item 2</mat-checkbox>
-        <br>
-        <mat-checkbox>List item 3</mat-checkbox>
-        <br>
-        <mat-checkbox>List item 1</mat-checkbox>
-        <br>
-        <mat-checkbox>List item 2</mat-checkbox>
-        <br>
-        <mat-checkbox>List item 3</mat-checkbox>
-        <br>
+      <br>
+      <!-- Not functional-->
+      <div *ngFor="let toDoItem of toDoItems">
+        <mat-checkbox>{{toDoItem.itemName}}</mat-checkbox>
       </div>
+      <br>
+      <!-- Adds items but is unable to print them out yet -->
+      <mat-form-field appearance="fill">
+        <mat-label>Add New Item</mat-label>
+        <input matInput [(ngModel)]="itemName" (keyup.enter)="addItem()">
+      </mat-form-field>
     </div>
 
-    <a mat-raised-button class="create-new-button" color="primary" routerLink="/list">Create</a>
+    <a mat-raised-button class=" create-new-button" color="primary" (click)="addList()" routerLink="/list">Create</a>
   </div>
 </div>
