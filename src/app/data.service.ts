@@ -8,8 +8,10 @@
 */
 
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { BehaviorSubject } from 'rxjs';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { BehaviorSubject, Observable, } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { FormControl, FormGroup } from '@angular/forms';
 
 import firebase from 'firebase/app';
 
@@ -18,17 +20,22 @@ import firebase from 'firebase/app';
 })
 
 export class DataService {
-  private allLists: List[] = [];
+  public allLists: List[];
   public allListsBS: BehaviorSubject<List[]> = new BehaviorSubject<List[]>(null);
   private allToDos: ToDo[] = [];
+  public listData: Observable<any[]>;
+  public listCollection: any;
+  public creator_name;
+  public list_timestamp;
+  public todo_list_name;
 
   constructor(private fs: AngularFirestore) {
-    this.fs.collection<List>('all-lists', ref => ref.orderBy('list_timestamp')).valueChanges().subscribe(
-      lists => {
-        this.allLists = lists;
-      });
+    fs.collection<List>('all-lists', ref => ref.orderBy('list_timestamp')).valueChanges().subscribe(lists => {
+      this.allLists = lists
+    });
 
-    this.fs.collection<ToDo>('todo-items', ref => ref.orderBy('item_timestamp')).valueChanges({ whichList: 'todo_list_name' }).subscribe(
+
+    fs.collection<ToDo>('todo-items', ref => ref.orderBy('item_timestamp')).valueChanges({ whichList: 'todo_list_name' }).subscribe(
       toDos => {
         this.allToDos = toDos;
       });

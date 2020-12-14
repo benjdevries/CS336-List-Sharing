@@ -2,10 +2,11 @@
   <span>Home - My Lists</span>
 </mat-toolbar>
 
+
 <!-- This component will be repeated with an ngFor -->
-<app-list-card></app-list-card>
-<app-list-card></app-list-card>
-<app-list-card></app-list-card>
+<app-list-card *ngFor="let list of ds.allLists;" [creator_name]="list.creator_name" list_timestamp="today"
+  [todo_list_name]="list.todo_list_name">
+</app-list-card>
 
 <!-- this should be in the lower right probably -->
 <a mat-fab color="accent" routerLink="/new-list">

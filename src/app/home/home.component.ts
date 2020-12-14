@@ -8,10 +8,10 @@ import { DataService, List } from '../data.service';
 })
 export class HomeComponent implements OnInit {
 
-  allLists: List[] = [];
 
-  constructor(private ds: DataService) {
-    this.ds.allListsBS.subscribe(al => this.allLists = al);
+  // this should be injected as private, but its a workaround until the data service is serving better data
+  constructor(public ds: DataService) {
+
   }
 
   ngOnInit(): void {
