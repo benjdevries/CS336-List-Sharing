@@ -2,7 +2,7 @@
   <button mat-icon-button class="home-button" routerLink='/home'>
     <mat-icon>home</mat-icon>
   </button>
-  <span>List 1</span>
+  <span>Groceries</span>
 </mat-toolbar>
 
 <div class="view-list-screen">
@@ -10,14 +10,9 @@
 
   <div class="right-side">
     <div class="list-content">
-      <h2>Created by: John Calvin</h2>
-
-      <div>
-        <mat-checkbox>List item 1</mat-checkbox>
-        <br>
-        <mat-checkbox>List item 2</mat-checkbox>
-        <br>
-        <mat-checkbox>List item 3</mat-checkbox>
+      <h2>Created by: Joe</h2>
+      <div class="todo-items-content" *ngFor="let list of ds.allToDos">
+        <mat-checkbox (change)="completeItem()">{{list.item_name}}</mat-checkbox>
       </div>
     </div>
 

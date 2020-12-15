@@ -22,12 +22,14 @@ import firebase from 'firebase/app';
 export class DataService {
   public allLists: List[];
   public allListsBS: BehaviorSubject<List[]> = new BehaviorSubject<List[]>(null);
-  private allToDos: ToDo[] = [];
+  public allToDos: ToDo[] = [];
   public listData: Observable<any[]>;
   public listCollection: any;
   public creator_name;
   public list_timestamp;
   public todo_list_name;
+
+  private listCollectionName: string = 'all-lists';
 
   constructor(private fs: AngularFirestore) {
     fs.collection<List>('all-lists', ref => ref.orderBy('list_timestamp')).valueChanges().subscribe(lists => {
@@ -44,6 +46,14 @@ export class DataService {
   addToDoList(list: List): void {
     this.fs.collection<List>('all-lists').add(list);
   }
+
+  // editToDoList(list: List) {
+  //   return this.fs.collection(this.listCollectionName).doc(list.todo_list_name).update(list);
+  // }
+
+  // deleteToDoList(list: List) {
+  //   this.fs.doc('all-lists/' + ).
+  // }
 
   getLists() {
     return this.allLists;

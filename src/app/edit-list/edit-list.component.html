@@ -2,7 +2,7 @@
   <a mat-icon-button routerLink='/list'>
     <mat-icon>arrow_back</mat-icon>
   </a>
-  <span>Edit: List 1</span>
+  <span>Edit: Groceries</span>
 </mat-toolbar>
 
 <div class="edit-list-screen">
@@ -11,43 +11,26 @@
   <div class="right-side">
     <div class="editing-list-content">
       <mat-form-field appearance="fill">
-        <mat-label>Name</mat-label>
+        <mat-label>List</mat-label>
         <!-- the value will need to be a variable from the database -->
-        <input matInput value='List 1'>
+        <input matInput value='Groceries'>
       </mat-form-field>
       <br>
       <mat-form-field appearance="fill">
         <mat-label>Creator</mat-label>
-        <input matInput value='John Calvin'>
+        <input matInput value='Joe'>
       </mat-form-field>
-      <div>
-        List of items with delete icons here
-        <br>
-        List of items with delete icons here
-        <br>
-        List of items with delete icons here
-        <br>
-        List of items with delete icons here
-        <br>
-        List of items with delete icons here
-        <br>
-        List of items with delete icons here
-        <br>
-        List of items with delete icons here
-        <br>
-        List of items with delete icons here
-        <br>
-        List of items with delete icons here
-        <br>
-        List of items with delete icons here
-        <br>
-        List of items with delete icons here
-        <br>
+      <div class="todo-items-content" *ngFor="let list of ds.allToDos">
+        <mat-checkbox>{{list.item_name}}</mat-checkbox>
       </div>
+      <mat-form-field>
+        <mat-label>Add Item</mat-label>
+        <input matInput [(ngModel)]="itemName" (keyup.enter)="addItem()">
+      </mat-form-field>
     </div>
     <div class="save-delete-buttons">
-      <a mat-raised-button class="save-button" color="primary">Save</a>
-      <a mat-raised-button class="delete-button" color="warn">Delete List</a>
+      <a mat-raised-button class="save-button" color="primary" routerLink='/home'>Save</a>
+      <a mat-raised-button class="delete-button" color="warn" routerLink='/home'>Delete List</a>
     </div>
   </div>
 </div>
