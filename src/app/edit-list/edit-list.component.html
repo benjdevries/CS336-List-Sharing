@@ -1,0 +1,35 @@
+<mat-toolbar color='primary'>
+  <a mat-icon-button routerLink='/home'>
+    <mat-icon>arrow_back</mat-icon>
+  </a>
+  <span>Edit: {{selectedList.todo_list_name}}</span>
+</mat-toolbar>
+
+<div class="edit-list-screen">
+
+
+  <div class="right-side">
+    <div class="editing-list-content">
+      <mat-form-field appearance="fill">
+        <mat-label>New List Name</mat-label>
+        <!-- the value will need to be a variable from the database -->
+        <input matInput [(ngModel)]='editedName'>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>New Author</mat-label>
+        <input matInput [(ngModel)]='editedAuthor'>
+      </mat-form-field>
+      <p>Click items to delete them immediately</p>
+      <div class="todo-items-content" *ngFor="let item of todoItems">
+        <button mat-stroked-button (click)="deleteItem(item.id)">
+          {{item.item_name}}</button>
+      </div>
+    </div>
+    <div class="save-delete-buttons">
+      <button mat-raised-button class="save-button" color="primary" (click)="saveChanges()">Save</button>
+      <button mat-raised-button class="delete-button" color="warn" (click)="deleteList()">Delete List</button>
+    </div>
+
+  </div>
+</div>

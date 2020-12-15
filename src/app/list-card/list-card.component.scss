@@ -1,0 +1,29 @@
+.mat-card {
+  background-color: lightgrey;
+  padding: 10px;
+  margin: 10px;
+}
+
+.mat-card{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: center;
+}
+
+.mat-card-title {
+  padding: 5px;
+}
+
+.author {
+  padding: 5px;
+}
+
+.date{
+  padding: 5px;
+}
+
+.mat-card-actions {
+  padding: 5px;
+}

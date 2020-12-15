@@ -1,0 +1,30 @@
+<mat-toolbar color='primary'>
+  <button mat-icon-button class="home-button" routerLink='/home'>
+    <mat-icon>home</mat-icon>
+  </button>
+  <span>{{selectedList.todo_list_name}}</span>
+</mat-toolbar>
+
+<div class="view-list-screen">
+
+
+  <div class="right-side">
+    <div class="list-content">
+      <h2>Created by: {{selectedList.creator_name}}</h2>
+      <p *ngIf="todoItems.length === 0">No items</p>
+      <div class="todo-items-content" *ngFor="let item of todoItems">
+        <button mat-stroked-button [ngClass]="{'completed': item.is_complete}"
+          (click)="completeItem(item.id, !item.is_complete)">
+          {{item.item_name}}</button>
+      </div>
+      <mat-form-field>
+        <mat-label>Add Item</mat-label>
+        <input matInput [(ngModel)]="itemName" (keyup.enter)="addItem()">
+      </mat-form-field>
+    </div>
+
+    <a mat-fab color="accent" [routerLink]="['/edit-list', selectedList.id]">
+      <mat-icon>create</mat-icon>
+    </a>
+  </div>
+</div>

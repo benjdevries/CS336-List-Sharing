@@ -1,0 +1,44 @@
+.edit-list-screen {
+  display: grid;
+  align-content: space-between;
+  white-space: nowrap;
+  width: min-content;
+}
+
+.back-button {
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+.right-side {
+  margin-left: 20px;
+  grid-column-start: 2;
+  grid-column-end: 4;
+}
+
+.editing-list-content {
+
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.save-delete-buttons {
+  position: sticky;
+  bottom: 10px;
+}
+
+.mat-raised-button {
+  margin: 5px;
+}
+
+.add-button {
+  font-size: 10px;
+  line-height: 20px;
+}
+

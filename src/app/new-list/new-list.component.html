@@ -1,0 +1,24 @@
+<mat-toolbar color='primary'>
+  <button mat-icon-button class="home-button" routerLink='/home'>
+    <mat-icon>home</mat-icon>
+  </button>
+  <span>New List</span>
+</mat-toolbar>
+
+<div class="new-list-screen">
+  <div class="right-side">
+    <div class="new-list-content">
+      <mat-form-field appearance="fill">
+        <mat-label>List Name</mat-label>
+        <input matInput [(ngModel)]="todoListName">
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Author</mat-label>
+        <input matInput [(ngModel)]="creatorName">
+      </mat-form-field>
+    </div>
+
+    <a mat-raised-button class=" create-new-button" color="primary" (click)="addList()" routerLink="/list">Create</a>
+  </div>
+</div>

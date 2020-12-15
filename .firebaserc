@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "cs336-list-sharing": {
+      "hosting": {
+        "CS336-List-Sharing": [
+          "cs336-list-sharing"
+        ]
+      }
+    }
+  }
+}

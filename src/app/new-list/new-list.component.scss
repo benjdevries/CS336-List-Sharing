@@ -1,0 +1,33 @@
+.new-list-screen {
+  display: grid;
+  align-content: space-between;
+  white-space: nowrap;
+  width: min-content;
+}
+
+.home-button {
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.right-side {
+  margin-left: 30px;
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
+.new-list-content {
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+.create-new-button {
+  position: sticky;
+  bottom: 10px;
+}
