@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService, List, ToDo } from '../data.service';
-import { Observable } from 'rxjs';
-import firebase from 'firebase/app';
-import { stringify } from '@angular/compiler/src/util';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-list',
@@ -11,12 +9,11 @@ import { stringify } from '@angular/compiler/src/util';
 })
 export class NewListComponent implements OnInit {
 
+  // values for name and author from ngForm
   public creatorName: string;
   public todoListName: string;
-  public itemName: string;
-  public toDoItems: ToDo[] = [];
 
-  constructor(private ds: DataService) { }
+  constructor(private ds: DataService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -27,12 +24,13 @@ export class NewListComponent implements OnInit {
   */
   // functional
   addList(): void {
-    const newList = {
+    const newList: List = {
       creator_name: this.creatorName,
       list_timestamp: new Date(),
       todo_list_name: this.todoListName
     };
     this.ds.addToDoList(newList);
+    this.router.navigate(['/home']);
   }
 
 }

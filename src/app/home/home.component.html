@@ -3,7 +3,7 @@
 </mat-toolbar>
 
 
-<!-- This component will be repeated with an ngFor -->
+<p *ngIf="todoLists.length === 0">No lists! Click the + in the lower right to get started.</p>
 <app-list-card *ngFor="let list of todoLists;" [creator_name]="list.creator_name" list_timestamp="today"
   [todo_list_name]="list.todo_list_name" [listId]="list.id">
 </app-list-card>

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService, List, ToDo } from '../data.service';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-view-list',
@@ -25,8 +23,9 @@ export class ViewListComponent implements OnInit {
     todoObs.subscribe(todos => this.todoItems = todos);
   }
 
+  // Add a singular item to the todo list
   addItem(): void {
-    const newToDo = {
+    const newToDo: ToDo = {
       is_complete: false,
       item_name: this.itemName,
       item_timestamp: new Date()
@@ -35,6 +34,7 @@ export class ViewListComponent implements OnInit {
     this.itemName = "";
   }
 
+  // Toggle the completion of a todo item
   completeItem(itemId: string, completed: boolean) {
     this.ds.toggleItemCompletion(this.selectedList.id, itemId, completed);
   }

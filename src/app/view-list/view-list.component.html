@@ -10,7 +10,7 @@
 
   <div class="right-side">
     <div class="list-content">
-      <h2>Created by: {{selectedList.creator_name}}</h2>
+      <h4>Created by: {{selectedList.creator_name}}</h4>
       <p *ngIf="todoItems.length === 0">No items</p>
       <div class="todo-items-content" *ngFor="let item of todoItems">
         <button mat-stroked-button [ngClass]="{'completed': item.is_complete}"
