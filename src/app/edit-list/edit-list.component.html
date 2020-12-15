@@ -20,8 +20,10 @@
         <mat-label>New Author</mat-label>
         <input matInput [(ngModel)]='editedAuthor'>
       </mat-form-field>
-      <div class="todo-items-content" *ngFor="let list of ds.allToDos">
-        <mat-checkbox>{{list.item_name}}</mat-checkbox>
+      <p>Click items to delete them immediately</p>
+      <div class="todo-items-content" *ngFor="let item of todoItems">
+        <button mat-stroked-button (click)="deleteItem(item.id)">
+          {{item.item_name}}</button>
       </div>
     </div>
     <div class="save-delete-buttons">

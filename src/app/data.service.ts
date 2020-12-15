@@ -1,45 +1,22 @@
-/*
-*   There are two collections within CS336-list-sharing: all-lists and todo-items.
-*   all-lists has documents for each added list with fields creator_name (string),
-*     list_timestamp (timestamp), and todo_list_name (string).
-*   todo-items has documents for each added todo-item for any list document with
-*     fields todo_list_name (string) that identifies its list from all-lists, is_complete
-*     (boolean), item_name (string), and item_timestamp (timestamp).
-*/
+/**
+ * This data service handles calls to Google Firestore.
+ * All todo lists are stored in a collection called 'all-lists'.
+ * Whithin each list is a collection called 'todo-items' that holds all the items. 
+ */
+
 
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { BehaviorSubject, Observable, } from 'rxjs';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable, } from 'rxjs';
 import { map } from 'rxjs/operators';
-
-import firebase from 'firebase/app';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class DataService {
-  public allLists: List[];
-  public allListsBS: BehaviorSubject<List[]> = new BehaviorSubject<List[]>(null);
-  public allToDos: ToDo[] = [];
-  public listData: Observable<any[]>;
-  public listCollection: any;
-  public creator_name;
-  public list_timestamp;
-  public todo_list_name;
 
-  private listCollectionName: string = 'all-lists';
-
-  constructor(private fs: AngularFirestore) {
-    fs.collection<List>('all-lists', ref => ref.orderBy('list_timestamp')).valueChanges().subscribe(lists => {
-      this.allLists = lists
-    });
-
-    fs.collection<ToDo>('todo-items', ref => ref.orderBy('item_timestamp')).valueChanges({ whichList: 'todo_list_name' }).subscribe(
-      toDos => {
-        this.allToDos = toDos;
-      });
-  }
+  constructor(private fs: AngularFirestore) { }
 
   // READ all todo lists
   lists$: Observable<List[]> = this.fs.collection<List>('all-lists').snapshotChanges().pipe(
@@ -63,6 +40,7 @@ export class DataService {
     )
   }
 
+  // READ todo items from a list by list id
   getTodoObsById(listId: string): Observable<ToDo[]> {
     return this.fs.collection<List>('all-lists').doc(listId).collection('todo-items').snapshotChanges().pipe(
       map(actions => {
@@ -75,7 +53,7 @@ export class DataService {
     )
   }
 
-  // UPDATE anme and author of a todo list
+  // UPDATE name and author of a todo list
   updateNameAndAuthor(docId: string, newName: string, newAuthor: string,): void {
     this.fs.collection("all-lists").doc(docId).update({
       todo_list_name: newName,
@@ -83,7 +61,7 @@ export class DataService {
     });
   }
 
-  // DELETE todo list by id
+  // DELETE document by complete path
   delete(docId: string): void {
     this.fs.doc(docId).delete();
   }
@@ -93,29 +71,18 @@ export class DataService {
     this.fs.collection<List>('all-lists').add(list);
   }
 
-  // UPDATE item completeion
+  // UPDATE item completion
   toggleItemCompletion(listId: string, itemId: string, completed: boolean): void {
     this.fs.doc(`all-lists/${listId}/todo-items/${itemId}`).update({
       is_complete: completed
     })
   }
 
-
+  // UPDATE todo list with new item
   addToDoItem(listId: string, item: ToDo): void {
     this.fs.collection('all-lists').doc(listId).collection('todo-items').add(item);
   }
 
-  getToDoItemsForList(todo_list_name: string): ToDo[] {
-    return this.allToDos.filter(list => list.todo_list_name === todo_list_name);
-  }
-
-  //   // still working on this
-  //   markItemComplete(item: ToDo): void {
-  //     console.log(`${item.item_name}`);
-  //     this.fs.collection<ToDo>('allToDos').where("item_name", "").update({
-  //       is_complete: item.is_complete,
-  //     })
-  //   }
 }
 
 export interface List { id?: string, creator_name: string; list_timestamp: any; todo_list_name: string }

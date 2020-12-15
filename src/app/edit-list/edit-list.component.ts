@@ -9,23 +9,28 @@ import { stringify } from '@angular/compiler/src/util';
   styleUrls: ['./edit-list.component.scss']
 })
 export class EditListComponent implements OnInit {
-  public creatorName: string;
-  public todoListName: string;
-  public todoListNameNew: string;
-  public itemName: string;
 
   selectedList: List;
   editedName: string;
   editedAuthor: string;
+  todoItems: ToDo[];
+
 
   constructor(public ds: DataService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     const listId = this.route.snapshot.paramMap.get('listId');
     const listObs = this.ds.getListObsById(listId);
+    const todoObs = this.ds.getTodoObsById(listId);
     listObs.subscribe(list => this.selectedList = list);
+    todoObs.subscribe(todos => this.todoItems = todos);
     this.editedAuthor = this.selectedList.creator_name;
     this.editedName = this.selectedList.todo_list_name;
+  }
+
+  deleteItem(itemId: string): void {
+    console.log("attepmt delete item")
+    this.ds.delete(`/all-lists/${this.selectedList.id}/todo-items/${itemId}`);
   }
 
   saveChanges(): void {
