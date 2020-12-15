@@ -18,12 +18,16 @@ import { ListItemComponent } from './list-item/list-item.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatRipple, MatRippleModule } from '@angular/material/core';
+import { MatRippleModule } from '@angular/material/core';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { firebaseConfig } from './credentials';
+import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,9 @@ import { firebaseConfig } from './credentials';
     EditListComponent,
     ViewListComponent,
     ListCardComponent,
-    ListItemComponent
+    ListItemComponent,
+    DeleteDialogComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +55,8 @@ import { firebaseConfig } from './credentials';
     AngularFirestoreModule,
     MatToolbarModule,
     MatRippleModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

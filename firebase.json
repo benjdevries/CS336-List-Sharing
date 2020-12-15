@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/CS-336-List-Sharing",
+    "public": "dist/CS336-List-Sharing",
     "ignore": [
       "firebase.json",
       "**/.*",

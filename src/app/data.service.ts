@@ -18,16 +18,25 @@ export class DataService {
 
   constructor(private fs: AngularFirestore) { }
 
+  // Full CRUD operations
+
+  // CREATE todo list
+  addToDoList(list: List): void {
+    this.fs.collection<List>('all-lists').add(list);
+  }
+
   // READ all todo lists
-  lists$: Observable<List[]> = this.fs.collection<List>('all-lists').snapshotChanges().pipe(
-    map(actions => {
-      return actions.map(p => {
-        const list = p.payload.doc;
-        const id = list.id;
-        return { id, ...list.data() as List };
-      });
-    })
-  )
+  getAllLists(): Observable<List[]> {
+    return this.fs.collection<List>('all-lists').snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(p => {
+          const list = p.payload.doc;
+          const id = list.id;
+          return { id, ...list.data() as List };
+        });
+      })
+    )
+  }
 
   // READ todo list from listId
   getListObsById(listId: string): Observable<List> {
@@ -54,21 +63,17 @@ export class DataService {
   }
 
   // UPDATE name and author of a todo list
-  updateNameAndAuthor(docId: string, newName: string, newAuthor: string,): void {
+  updateName(docId: string, newName: string): void {
     this.fs.collection("all-lists").doc(docId).update({
       todo_list_name: newName,
-      creator_name: newAuthor,
     });
   }
 
-  // DELETE document by complete path
-  delete(docId: string): void {
-    this.fs.doc(docId).delete();
-  }
-
-  // CREATE todo list
-  addToDoList(list: List): void {
-    this.fs.collection<List>('all-lists').add(list);
+  // UPDATE author of a todo list
+  updateAuthor(docId: string, newAuthor: string,): void {
+    this.fs.collection("all-lists").doc(docId).update({
+      creator_name: newAuthor,
+    });
   }
 
   // UPDATE item completion
@@ -81,6 +86,11 @@ export class DataService {
   // UPDATE todo list with new item
   addToDoItem(listId: string, item: ToDo): void {
     this.fs.collection('all-lists').doc(listId).collection('todo-items').add(item);
+  }
+
+  // DELETE document by complete path
+  delete(docId: string): void {
+    this.fs.doc(docId).delete();
   }
 
 }
