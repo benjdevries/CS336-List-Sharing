@@ -13,7 +13,11 @@ export class ListCardComponent implements OnInit {
   @Input() creator_name: string;
   @Input() list_timestamp: any;
   @Input() todo_list_name: string;
+  @Input() listId: string;
 
+  deleteList(listId: string): void {
+    this.ds.delete(`/all-lists/${listId}`);
+  }
 
   constructor(private ds: DataService, private route: ActivatedRoute) { }
 

@@ -1,8 +1,8 @@
 <mat-toolbar color='primary'>
-  <a mat-icon-button routerLink='/list'>
+  <a mat-icon-button routerLink='/home'>
     <mat-icon>arrow_back</mat-icon>
   </a>
-  <span>Edit: Groceries</span>
+  <span>Edit: {{selectedList.todo_list_name}}</span>
 </mat-toolbar>
 
 <div class="edit-list-screen">
@@ -11,26 +11,23 @@
   <div class="right-side">
     <div class="editing-list-content">
       <mat-form-field appearance="fill">
-        <mat-label>List</mat-label>
+        <mat-label>New List Name</mat-label>
         <!-- the value will need to be a variable from the database -->
-        <input matInput value='Groceries'>
+        <input matInput [(ngModel)]='editedName'>
       </mat-form-field>
       <br>
       <mat-form-field appearance="fill">
-        <mat-label>Creator</mat-label>
-        <input matInput value='Joe'>
+        <mat-label>New Author</mat-label>
+        <input matInput [(ngModel)]='editedAuthor'>
       </mat-form-field>
       <div class="todo-items-content" *ngFor="let list of ds.allToDos">
         <mat-checkbox>{{list.item_name}}</mat-checkbox>
       </div>
-      <mat-form-field>
-        <mat-label>Add Item</mat-label>
-        <input matInput [(ngModel)]="itemName" (keyup.enter)="addItem()">
-      </mat-form-field>
     </div>
     <div class="save-delete-buttons">
-      <a mat-raised-button class="save-button" color="primary" routerLink='/home'>Save</a>
-      <a mat-raised-button class="delete-button" color="warn" routerLink='/home'>Delete List</a>
+      <button mat-raised-button class="save-button" color="primary" (click)="saveChanges()">Save</button>
+      <button mat-raised-button class="delete-button" color="warn" (click)="deleteList()">Delete List</button>
     </div>
+
   </div>
 </div>

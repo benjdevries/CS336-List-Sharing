@@ -14,21 +14,26 @@ export class EditListComponent implements OnInit {
   public todoListNameNew: string;
   public itemName: string;
 
+  selectedList: List;
+  editedName: string;
+  editedAuthor: string;
+
   constructor(public ds: DataService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.todoListName = this.route.snapshot.paramMap.get('todo-list-name');
+    const listId = this.route.snapshot.paramMap.get('listId');
+    const listObs = this.ds.getListObsById(listId);
+    listObs.subscribe(list => this.selectedList = list);
+    this.editedAuthor = this.selectedList.creator_name;
+    this.editedName = this.selectedList.todo_list_name;
   }
 
-  addItem(): void {
-    const newToDo = {
-      // todo_list_name: this.todoListName,
-      todo_list_name: "Groceries",
-      is_complete: false,
-      item_name: this.itemName,
-      item_timestamp: new Date()
-    }
-    this.ds.addToDoItem(newToDo);
+  saveChanges(): void {
+    this.ds.updateNameAndAuthor(this.selectedList.id, this.editedName, this.editedAuthor);
+  }
+
+  deleteList(): void {
+    this.ds.delete(`/all-lists/${this.selectedList.id}`)
   }
 
 }

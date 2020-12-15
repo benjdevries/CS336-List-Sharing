@@ -23,21 +23,6 @@ export class NewListComponent implements OnInit {
 
 
   /*
-  *   When "add item" button clicked, add a todo list item to todo-items collection
-  */
-  // currently cannot tell between items that are in this ToDo List and those
-  // that are not
-  // add some error message if todo_list_name not yet declared
-  addItem(): void {
-    const newToDo = {
-      todo_list_name: this.todoListName,
-      is_complete: false,
-      item_name: this.itemName,
-      item_timestamp: new Date()
-    }
-    this.ds.addToDoItem(newToDo);
-  }
-  /*
   *   When "create" button clicked, add a todo list to all-lists collection
   */
   // functional

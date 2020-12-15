@@ -8,9 +8,9 @@ import { ViewListComponent } from './view-list/view-list.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'edit-list', component: EditListComponent },
+  { path: 'edit-list/:listId', component: EditListComponent },
   { path: 'new-list', component: NewListComponent },
-  { path: 'list', component: ViewListComponent },
+  { path: 'list/:listId', component: ViewListComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 

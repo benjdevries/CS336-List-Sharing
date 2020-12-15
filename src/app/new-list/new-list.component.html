@@ -9,24 +9,13 @@
   <div class="right-side">
     <div class="new-list-content">
       <mat-form-field appearance="fill">
-        <mat-label>Name</mat-label>
+        <mat-label>List Name</mat-label>
         <input matInput [(ngModel)]="todoListName">
       </mat-form-field>
       <br>
       <mat-form-field appearance="fill">
-        <mat-label>Creator</mat-label>
+        <mat-label>Author</mat-label>
         <input matInput [(ngModel)]="creatorName">
-      </mat-form-field>
-      <br>
-      <!-- Not functional-->
-      <div *ngFor="let toDoItem of toDoItems">
-        <mat-checkbox>{{toDoItem.itemName}}</mat-checkbox>
-      </div>
-      <br>
-      <!-- Adds items but is unable to print them out yet -->
-      <mat-form-field>
-        <mat-label>Add New Item</mat-label>
-        <input matInput [(ngModel)]="itemName" (keyup.enter)="addItem()">
       </mat-form-field>
     </div>
 
