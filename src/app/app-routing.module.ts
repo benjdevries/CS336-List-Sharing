@@ -6,13 +6,17 @@ import { NewListComponent } from './new-list/new-list.component';
 import { EditListComponent } from './edit-list/edit-list.component';
 import { ViewListComponent } from './view-list/view-list.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
+  { path: 'login', component: LoginComponent, },
+  { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent },
   { path: 'edit-list/:listId', component: EditListComponent },
   { path: 'new-list', component: NewListComponent },
   { path: 'list/:listId', component: ViewListComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
 

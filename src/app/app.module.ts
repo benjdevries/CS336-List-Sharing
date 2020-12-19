@@ -28,6 +28,9 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { firebaseConfig } from './credentials';
 import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { VerifyEmailDirective } from './verify-email.directive';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,10 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     ListCardComponent,
     ListItemComponent,
     DeleteDialogComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    LoginComponent,
+    RegisterComponent,
+    VerifyEmailDirective
   ],
   imports: [
     BrowserModule,

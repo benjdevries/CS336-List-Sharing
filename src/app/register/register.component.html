@@ -1,0 +1,22 @@
+<form #registerForm='ngForm' (ngSubmit)='onSubmit(registerForm)'>
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput id='email' required [(ngModel)]='newUser.email' name='email' email #email='ngModel'>
+  </mat-form-field>
+  <div *ngIf='registerForm.errors'>
+    Not a vaild email address.
+  </div>
+  <br>
+  <mat-form-field>
+    <mat-label>Verify Email</mat-label>
+    <input matInput id='verify-email' required name='verify-email' [(ngModel)]='verifyEmail' email
+      appVerifyEmail='verifyEmail'>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input matInput id='password' required [(ngModel)]='newUser.password' name='password'>
+  </mat-form-field>
+  <br>
+  <button mat-raised-button type='submit' class='btn btn-success' [disabled]='!registerForm.form.valid'>Submit</button>
+</form>
